@@ -1,0 +1,13 @@
+# LEMP PLAYBOOK
+---
+- hosts: web
+  become: true
+  tasks:
+  - name: "dnf install apache"
+    ansible.builtin.yum:
+      name: "httpd"
+      state: "latest"
+      update_cache: true
+      
+  - name: "Starting httpd"
+    service: name=httpd state=started

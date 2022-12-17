@@ -1,0 +1,13 @@
+# LEMP PLAYBOOK
+---
+- hosts: lb
+  become: true
+  tasks:
+  - name: "dnf install nginx"
+    ansible.builtin.yum:
+      name: "nginx"
+      state: "latest"
+      update_cache: true
+
+  - name: "Starting nginx"
+    service: name=nginx state=started

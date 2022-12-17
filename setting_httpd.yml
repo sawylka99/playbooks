@@ -1,0 +1,24 @@
+# LEMP PLAYBOOK
+---
+- hosts: app1
+  become: true
+  tasks:
+   - name: Create index.html
+     copy:
+       dest: /var/www/html/index.html
+       content: |
+            <head>
+             <body> App1 </body>
+            </head>
+
+- hosts: app2
+  become: true
+  tasks:
+   - name: Create index.html
+     copy:
+       dest: /var/www/html/index.html
+       content: |
+            <head>
+             <body> App2 </body>
+            </head>
+
